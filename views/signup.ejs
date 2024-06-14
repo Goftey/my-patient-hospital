@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://kit.fontawesome.com/c381045d82.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="/style.css"> 
+</head>
+<body class="gase">
+    <div class="containerww">
+        <div class="mant">
+            <ul>
+                <li><img src="/hosi.png.png" alt="Logo" style="width: 100px; margin-left: -20px; border-radius: 20%; border: 2px solid #800080;"></li>
+                <li class="nur">Sign up</li>
+            </ul>
+        </div>
+        <hr class="dan" width="100%" align="left">
+        <ul type=none class="errr">
+            <% if (typeof errors != 'undefined' && errors.length > 0) { %>
+                <% errors.forEach(error => { %>
+                    <li><i class="fa-solid fa-triangle-exclamation fa-flip" style="color: #1e3152;"></i>&nbsp;<%= error.message %></li>
+                <% }) %>
+            <% } %>
+        </ul>
+        <form id="xand" action="/users/signup" method="POST">
+            <label class="nemo" for="firstname" id="nemoe">First name</label>
+    <input class="nemoon" type="text" id="firstnameInput" name="firstname" placeholder="Eg.John" value="<%= firstname %>">
+    
+    <label class="lasna" for="lastname" id="lasnam">Last name</label>
+    <input class="lasnam" type="text" id="lastnameInput" name="lastname" placeholder="Last name" value="<%= lastname %>">
+    
+            <br>
+            <label class="lamo" for="email" id="lamoe">Email</label>
+            <input class="jennn" type="email" id="emailInput" name="email" placeholder="Enter your Email" value="<%= email %>">
+            <br>
+            <label class="nare" for="password">Password</label>
+            <br>
+            <div style="position: relative;">
+                <input class="mzsa" type="password" id="passwordInput" name="password" placeholder="Enter your password" value="<%= password %>">
+                <i class="fa-regular fa-eye-slash" id="togglePassword" style="position: absolute; right: 10px; top: 10px; cursor: pointer;"></i>
+            </div>
+            
+            <label class="mbuli" for="confirmPassword">Confirm Password</label>
+        <br>
+        <div style="position: relative;">
+            <input class="mzse" type="password" id="confirmPasswordInput" name="confirmPassword" placeholder="Confirm your password" value="<%= confirmPassword %>">
+            <i class="fa-regular fa-eye-slash" id="toggleConfirmPassword" style="position: absolute; right: 10px; top: 10px; cursor: pointer;"></i>
+        </div>
+            <br>
+            <button class="basd" type="submit" id="qw">Sign up</button>
+            <br><br><br>
+            <label class="popp">If you already have an account</label>
+            <a class="gras" href="/users/log_in">LOG IN</a>
+        </form>
+    </div>
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function (e) {
+            const passwordInput = document.getElementById('passwordInput');
+    
+            if (passwordInput.getAttribute('type') === 'password') {
+                passwordInput.setAttribute('type', 'text');
+                this.classList.add('fa-eye'); // Add eye icon class
+                this.classList.remove('fa-eye-slash'); // Remove eye-slash icon class
+            } else {
+                passwordInput.setAttribute('type', 'password');
+                this.classList.add('fa-eye-slash'); // Add eye-slash icon class
+                this.classList.remove('fa-eye'); // Remove eye icon class
+            }
+        });
+ 
+        document.getElementById('toggleConfirmPassword').addEventListener('click', function (e) {
+            const confirmPasswordInput = document.getElementById('confirmPasswordInput');
+    
+            if (confirmPasswordInput.getAttribute('type') === 'password') {
+                confirmPasswordInput.setAttribute('type', 'text');
+                this.classList.add('fa-eye'); // Add eye icon class
+                this.classList.remove('fa-eye-slash'); // Remove eye-slash icon class
+            } else {
+                confirmPasswordInput.setAttribute('type', 'password');
+                this.classList.add('fa-eye-slash'); // Add eye-slash icon class
+                this.classList.remove('fa-eye'); // Remove eye icon class
+            }
+        });
+    </script>
+    <script src="/script.js"></script>
+</body>
+</html>

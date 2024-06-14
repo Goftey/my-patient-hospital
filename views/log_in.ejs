@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://kit.fontawesome.com/c381045d82.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="sign">
+    <form action="/users/log_in" method="POST">
+        <div class="container">
+            <div class="jiu">
+                <ul>
+                    <li><img src="/hosi.png.png" alt="Logo" style="width: 100px; margin-left: -20px; border-radius: 20%; border: 2px solid #800080;"></li>
+                    <li class="fer">LOG IN</li>
+                </ul>
+            </div>
+            <hr class="dan" width="100%" align="left">
+            <ul type="none" class="errr">
+                <% if (typeof errors != 'undefined' && errors.length > 0) { %>
+                    <% errors.forEach(error => { %>
+                        <li><i class="fa-solid fa-triangle-exclamation fa-flip" style="color: #1e3152;"></i>&nbsp;<%= error.message %></li>
+                    <% }) %>
+                <% } %>
+            </ul>
+            <div class="input-container">
+                <input class="yh" type="email" id="emailInput" name="email" placeholder=" " value="<%= typeof email !== 'undefined' ? email : '' %>">
+                <label class="ci label" for="email" id="gf">Email</label>
+            </div>
+            <div class="input-container">
+                <input class="yh" type="password" id="passwordInput" name="password" placeholder=" " value="<%= typeof password !== 'undefined' ? password : '' %>">
+                <label class="ci label" for="password">Password</label>
+                <i class="fa-regular fa-eye-slash" id="togglePassword" style="position: absolute; right: 10px; top: 10px; cursor: pointer;"></i>
+            </div>
+            <a class="fd" href="index.html">Forgot password?</a>
+            <br><br>
+            <button class="mh" type="submit" id="yt">Submit</button>
+            <br><br>
+            <label class="zs">If you don't have an account</label>
+            <a class="gadd" href="/users/signup"> SIGN UP</a>
+        </div>
+    </form>
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function (e) {
+            const passwordInput = document.getElementById('passwordInput');
+            if (passwordInput.getAttribute('type') === 'password') {
+                passwordInput.setAttribute('type', 'text');
+                this.classList.add('fa-eye'); // Add eye icon class
+                this.classList.remove('fa-eye-slash'); // Remove eye-slash icon class
+            } else {
+                passwordInput.setAttribute('type', 'password');
+                this.classList.add('fa-eye-slash'); // Add eye-slash icon class
+                this.classList.remove('fa-eye'); // Remove eye icon class
+            }
+        });
+    </script>
+    <div id="resultMessage"></div>
+    <script src="/jane.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <script src="https://kit.fontawesome.com/c381045d82.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"content="width=device-width,initial-scale=1.0"/>
+    <meta http-equiv="X-UA-compatible"content="ie=edge"/>
+    <link rel="stylesheet" href="/style.css"> 
+</head>
+<body class="sign">
+    <form action="/users/log_in" method="POST">
+  <div class="container">
+    <div class="jiu">
+        <ul>
+            <li><img src="/hosi.png.png" alt="Logo" style="width: 100px; margin-left: -20px; border-radius: 20%; border: 2px solid #800080;"></li>
+            <li class="fer">LOG IN</li>
+        </ul>
+    </div>
+<hr class="dan" width="100%" align="left">
+<ul type=none class="errr">      
+    <% if (typeof errors != 'undefined' && errors.length > 0 ) { %>
+        <% errors.forEach(error => { %>
+            <li><i class="fa-solid fa-triangle-exclamation fa-flip" style="color: #1e3152;"></i>&nbsp;<%= error.message %></li>
+        <% }) %> 
+    <% } %>    
+</ul>
+<label class="ci" for="email"id="gf">Email</label>
+<input class="yh"type="email" id="emailInput" name="email" placeholder="Enter your Email"value="<%= typeof email !== 'undefined' ? email : '' %>">
+<br><br>
+<label class="vi" for="password">Password</label>
+<br>
+<div style="position: relative;">
+    <input class="mg" type="password" id="passwordInput" name="password" placeholder="Enter your password" value="<%= typeof password !== 'undefined' ? password : '' %>">
+    <i class="fa-regular fa-eye-slash" id="togglePassword" style="position: absolute; right: 10px; top: 10px; cursor: pointer;"></i>
+   
+
+</div>
+<br>
+<a class="fd" href="index.html">Forgot password?</a>
+<br><br>
+<button class="mh" type="submit" id="yt">Submit</button>
+<br><br>
+<label class="zs">If you dont have an account</label>
+<a class="gadd" href="/users/signup"> SIGN UP</a>
+  </div>
+</form>
+<script>
+    document.getElementById('togglePassword').addEventListener('click', function (e) {
+        const passwordInput = document.getElementById('passwordInput');
+
+        if (passwordInput.getAttribute('type') === 'password') {
+            passwordInput.setAttribute('type', 'text');
+            this.classList.add('fa-eye'); // Add eye icon class
+            this.classList.remove('fa-eye-slash'); // Remove eye-slash icon class
+        } else {
+            passwordInput.setAttribute('type', 'password');
+            this.classList.add('fa-eye-slash'); // Add eye-slash icon class
+            this.classList.remove('fa-eye'); // Remove eye icon class
+        }
+    });
+</script>
+
+<div id="resultMessage"></div>
+<script src="/jane.js"></script>
+</body>
+</html> -->
